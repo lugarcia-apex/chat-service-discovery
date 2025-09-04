@@ -20,15 +20,7 @@ spec:
           # We keep a default here and allow the application port to be overridden via env var SERVER_PORT.
           # Optionally, you can remove the ports section if you don't need named ports or probes.
           ports:
-            - name: http
-              containerPort: 8761
+              - containerPort: 8761
           envFrom:
             - configMapRef:
                 name: chat-service-discovery-config
-          env:
-            # SERVER_PORT allows overriding the Spring Boot server.port at runtime
-            - name: SERVER_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: chat-service-discovery-config
-                  key: SERVER_PORT
