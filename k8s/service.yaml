@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chat-service-discovery
+spec:
+  selector:
+    app: chat-service-discovery
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: http
+      nodePort: 30001
+  type: NodePort
